@@ -7,8 +7,9 @@ const recursiveSearch = (obj, searchText) => {
             const value = obj[key];
 
             if (
-                key.includes(searchText) ||
-                (typeof value === "string" && value.includes(searchText))
+                key.toLowerCase().includes(searchText.toLowerCase()) ||
+                (typeof value === "string" &&
+                    value.toLowerCase().includes(searchText.toLowerCase()))
             ) {
                 result[key] = value;
             } else if (typeof value === "object" && value !== null) {
