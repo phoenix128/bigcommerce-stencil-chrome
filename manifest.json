@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "BigCommerce Debug Extension",
+  "version": "1.0",
+  "description": "Explore context debug information ina local dev environment.",
+  "permissions": ["tabs", "scripting", "webNavigation"],
+  "background": {
+    "service_worker": "build/background.bundle.js",
+    "type": "module"
+  },
+  "devtools_page": "public/devtools.html",
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}
