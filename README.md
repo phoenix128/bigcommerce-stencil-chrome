@@ -13,7 +13,7 @@ This extension provides a contextual analysis tool, allowing developers to easil
 
 ### In Action
 
-![jetbrains setup](https://github.com/phoenix128/bigcommerce-stencil-chrome/blob/main/doc-files/action.gif?raw=true)
+![in action](https://github.com/phoenix128/bigcommerce-stencil-chrome/blob/main/doc-files/action.gif?raw=true)
 
 ## Usage
 
