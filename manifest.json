@@ -11,14 +11,13 @@
     "default_popup": "public/popup.html",
     "default_icon": "icons/popup.png"
   },
-  "description": "Explore context debug information ina local dev environment.",
-  "permissions": ["tabs", "activeTab", "scripting", "webNavigation"],
+  "description": "Explore context debug information in a local dev environment.",
+  "permissions": ["tabs", "activeTab", "webNavigation"],
   "background": {
     "service_worker": "build/background.bundle.js",
     "type": "module"
   },
   "devtools_page": "public/devtools.html",
-  "host_permissions": ["<all_urls>"],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
   }

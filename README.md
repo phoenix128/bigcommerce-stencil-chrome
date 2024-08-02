@@ -11,6 +11,9 @@ This extension provides a contextual analysis tool, allowing developers to easil
 - Display detailed context data directly within the Chrome DevTools.
 - Easy navigation and search functionality to find specific context variables.
 
+### In Action
+
+![jetbrains setup](https://github.com/phoenix128/bigcommerce-stencil-chrome/blob/main/doc-files/action.gif?raw=true)
 
 ## Usage
 

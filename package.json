@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "extension": "npm run build && node scripts/create-extension.js"
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.6",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "fs-extra": "^11.2.0",
+    "archiver": "^7.0.1",
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.7",
