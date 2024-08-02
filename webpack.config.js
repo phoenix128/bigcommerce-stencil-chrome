@@ -7,9 +7,10 @@ module.exports = (env, argv) => {
     const mode = argv.mode || "development";
     return {
         entry: {
-            background: "./src/background.js",
-            panel: "./src/panel.js",
-            devtools: "./src/devtools.js",
+            background: "./src/entry/background.js",
+            panel: "./src/entry/panel.js",
+            devtools: "./src/entry/devtools.js",
+            popup: "./src/entry/popup.js",
         },
         output: {
             path: path.resolve(__dirname, "build"),
@@ -52,7 +53,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: "styles.css",
+                filename: "[name].styles.css",
             }),
             new HtmlWebpackPlugin({
                 template: "public/panel.html",

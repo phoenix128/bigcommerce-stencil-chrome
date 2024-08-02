@@ -17,6 +17,7 @@
     "react-icons": "^5.2.1"
   },
   "devDependencies": {
+    "fs-extra": "^11.2.0",
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.7",

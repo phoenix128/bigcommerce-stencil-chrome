@@ -1,4 +1,4 @@
-import isProduction from "./is-production";
+import isProduction from "../is-production";
 
 if (isProduction) {
     chrome.devtools.panels.create(
