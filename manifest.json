@@ -12,7 +12,7 @@
     "default_icon": "icons/popup.png"
   },
   "description": "Explore context debug information in a local dev environment.",
-  "permissions": ["tabs", "activeTab", "webNavigation"],
+  "permissions": ["tabs"],
   "background": {
     "service_worker": "build/background.bundle.js",
     "type": "module"

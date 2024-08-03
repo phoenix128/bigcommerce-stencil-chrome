@@ -41,7 +41,7 @@ module.exports = [
             "react-hooks/exhaustive-deps": "warn",
 
             "no-unused-vars": "warn",
-            "no-console": "warn",
+            "no-console": "off",
             "no-undef": "error",
         },
     },
