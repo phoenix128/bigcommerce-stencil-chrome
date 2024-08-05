@@ -1,5 +1,5 @@
 {
-  "name": "my-chrome-extension",
+  "name": "bigcommerce-stencil-chrome",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
