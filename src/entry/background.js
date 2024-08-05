@@ -8,11 +8,11 @@ if (isProduction) {
         });
     });
 
-    chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-        if (changeInfo.status === "complete" && tab.url) {
+    chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+        if (changeInfo.status === "complete") {
             chrome.runtime.sendMessage({
                 action: "updateDebugInfo",
-                tabId: tabId,
+                tabId,
             });
         }
     });

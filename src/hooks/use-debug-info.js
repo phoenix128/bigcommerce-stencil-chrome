@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import isProduction from "../is-production";
-import useTab from "./use-tab";
+import useTabId from "./use-tab-id";
+import useGetTab from "./use-get-tab";
 
 const useDebugInfo = () => {
     const [debugInfo, setDebugInfo] = useState({});
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
-    const sourceTab = useTab();
+    const sourceTabId = useTabId();
+    const getTab = useGetTab();
 
     const fetchDebugInfo = useCallback(
         (tabId) => {
@@ -29,10 +31,12 @@ const useDebugInfo = () => {
                     return;
                 }
 
-                if (tabId && tabId === sourceTab?.id) {
-                    const debugUrl = sourceTab.url.includes("?")
-                        ? `${sourceTab.url}&debug=context`
-                        : `${sourceTab.url}?debug=context`;
+                if (tabId && tabId === sourceTabId) {
+                    const tab = await getTab(tabId);
+                    const debugUrl = tab.url.includes("?")
+                        ? `${tab.url}&debug=context`
+                        : `${tab.url}?debug=context`;
+
                     try {
                         setLoading(true);
                         setError(false);
@@ -47,13 +51,13 @@ const useDebugInfo = () => {
                 }
             })();
         },
-        [sourceTab?.url, sourceTab?.id],
+        [getTab, sourceTabId],
     );
 
     const handleMessage = useCallback(
-        (request, tabId) => {
+        (request) => {
             if (request.action === "updateDebugInfo") {
-                fetchDebugInfo(tabId).then();
+                fetchDebugInfo(request.tabId).then();
             }
         },
         [fetchDebugInfo],
@@ -63,14 +67,14 @@ const useDebugInfo = () => {
         if (isProduction) {
             chrome.runtime.onMessage.addListener(handleMessage);
         }
-        fetchDebugInfo(sourceTab?.id);
+        fetchDebugInfo(sourceTabId);
 
         return () => {
             if (isProduction) {
                 chrome.runtime.onMessage.removeListener(handleMessage);
             }
         };
-    }, [fetchDebugInfo, handleMessage, sourceTab?.id]);
+    }, [fetchDebugInfo, handleMessage, sourceTabId]);
 
     return {
         debugInfo,

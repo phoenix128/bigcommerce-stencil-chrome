@@ -57,7 +57,21 @@ module.exports = (env, argv) => {
             }),
             new HtmlWebpackPlugin({
                 template: "public/panel.html",
+                filename: "panel.html",
                 inject: "body",
+                chunks: ["panel"],
+            }),
+            new HtmlWebpackPlugin({
+                template: "public/devtools.html",
+                filename: "devtools.html",
+                inject: "body",
+                chunks: ["devtools"],
+            }),
+            new HtmlWebpackPlugin({
+                template: "public/popup.html",
+                filename: "popup.html",
+                inject: "body",
+                chunks: ["popup"],
             }),
             new webpack.DefinePlugin({
                 "process.env.NODE_ENV": JSON.stringify(mode),
