@@ -33,9 +33,11 @@ const useDebugInfo = () => {
 
                 if (tabId && tabId === sourceTabId) {
                     const tab = await getTab(tabId);
-                    const debugUrl = tab.url.includes("?")
-                        ? `${tab.url}&debug=context`
-                        : `${tab.url}?debug=context`;
+
+                    // Extract query string from the url and append the debug=context parameter
+
+                    const debugUrl = new URL(tab.url.split("#")[0]);
+                    debugUrl.searchParams.append("debug", "context");
 
                     try {
                         setLoading(true);

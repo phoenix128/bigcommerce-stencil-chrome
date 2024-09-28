@@ -6,6 +6,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import Navigation from "./components/Navigation";
 import JsonExplorer from "./components/JsonExplorer";
 import ErrorScreen from "./components/ErrorScreen";
+import PageInfo from "./components/PageInfo";
 
 const App = () => {
     const { debugInfo, error, loading } = useDebugInfo();
@@ -16,6 +17,7 @@ const App = () => {
             <LoadingScreen loading={loading} />
             <div className={"h-screen w-screen flex flex-col"}>
                 <Navigation />
+                <PageInfo debugInfo={debugInfo} />
                 <JsonExplorer debugInfo={debugInfo} />
             </div>
         </>

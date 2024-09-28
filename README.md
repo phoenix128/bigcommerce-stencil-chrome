@@ -61,7 +61,7 @@ To run the extension in development mode with live reloading:
     ```
 
 2. Start a local stencil theme development on port 3000
-3. Open Chrome and navigate to http://localhost:4000/
+3. Open Chrome and navigate to http://localhost:4000/panel.html
 
 ## Contributing
 
