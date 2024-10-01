@@ -42,7 +42,15 @@ const useDebugInfo = () => {
                     try {
                         setLoading(true);
                         setError(false);
-                        const response = await fetch(debugUrl);
+
+                        const cookies = await chrome.cookies.getAll({ domain: debugUrl.hostname });
+                        const serializedCookies = cookies.map(cookie => `${cookie.name}=${cookie.value}`).join('; ');
+
+                        const response = await fetch(debugUrl, {
+                            headers: {
+                                "Cookie": serializedCookies,
+                            },
+                        });
                         const data = await response.json();
                         setDebugInfo(data);
                     } catch (error) {

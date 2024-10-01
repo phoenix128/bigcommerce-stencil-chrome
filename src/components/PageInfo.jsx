@@ -10,34 +10,22 @@ const PageInfo = ({ debugInfo }) => {
     return (
         <>
             <div className={"py-2 px-6 bg-slate-600 font-semibold"}>Page Information</div>
-            <Table hideHeader isCompact aria-label="Page Information">
-                <TableHeader>
-                    <TableColumn>Key</TableColumn>
-                    <TableColumn>Value</TableColumn>
-                </TableHeader>
-                <TableBody>
-                    <TableRow>
-                        <TableCell>Store Hash</TableCell>
-                        <TableCell><span className="font-semibold">{ debugInfo.settings?.store_hash }</span></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Store URL</TableCell>
-                        <TableCell><span className="font-semibold">{ debugInfo.settings?.base_url }</span></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Page Title</TableCell>
-                        <TableCell><span className="font-semibold">{ debugInfo.head?.title }</span></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Page Type</TableCell>
-                        <TableCell><span className="font-semibold">{ debugInfo.page_type }</span></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>Template File</TableCell>
-                        <TableCell><span className="font-semibold">{ debugInfo.template_file ? `${debugInfo.template_file}.html` : '' }</span></TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
+            <div className={"grid grid-cols-[120px_1fr] p-4 items-center"}>
+                <div className="text-xs w-16">Store Hash</div>
+                <div><span className="font-semibold text-xs">{ debugInfo.settings?.store_hash }</span></div>
+                
+                <div className="text-xs">Store URL</div>
+                <div><span className="font-semibold text-xs">{ debugInfo.settings?.base_url }</span></div>
+
+                <div className="text-xs">Page Title</div>
+                <div><span className="font-semibold text-xs">{ debugInfo.head?.title }</span></div>
+                
+                <div className="text-xs">Page Type</div>
+                <div><span className="font-semibold text-xs">{ debugInfo.page_type }</span></div>
+                
+                <div className="text-xs">Template File</div>
+                <div><span className="font-semibold text-xs">{ debugInfo.template_file ? `${debugInfo.template_file}.html` : '' }</span></div>
+            </div>
         </>
     );
 }
